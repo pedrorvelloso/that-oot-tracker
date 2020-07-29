@@ -2,24 +2,33 @@ import React, { useState } from 'react'
 
 import { Container, IconStyled } from './styles'
 
-interface IconProps {
+export interface IconBaseProps {
   src: string;
-  onRightClick?: () => void;
+}
+
+interface IconProps extends IconBaseProps {
+  onRightClick?: (setAcquired: React.Dispatch<React.SetStateAction<boolean>>) => void;
+  onClick?: (setAcquired: React.Dispatch<React.SetStateAction<boolean>>) => void;
   className?: string;
 }
 
-const Icon: React.FC<IconProps> = ({ src, className, onRightClick, children }) => {
+const Icon: React.FC<IconProps> = ({ src, className, onRightClick, onClick, children }) => {
   const [acquired, setAcquired] = useState(false)
 
   return (
     <Container
-      onClick={() => setAcquired(!acquired)}
-      onContextMenu={onRightClick}
+      onClick={() => {
+        if (onClick) onClick(setAcquired)
+        else setAcquired(!acquired)
+      }}
+      onContextMenu={() => {
+        if (onRightClick) onRightClick(setAcquired)
+      }}
     >
       <IconStyled
         src={src}
-        acquired={acquired}
         className={className}
+        acquired={acquired}
       />
       {children}
     </Container>

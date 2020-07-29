@@ -1,14 +1,14 @@
 import React from 'react'
 import medallions from '../../../items/medallions'
 
-import Icon from '../../../components/Icon'
+import MedallionIcon from '../../../components/MedallionIcon'
 
 import { Container } from './styles'
 
 const Medallions: React.FC = () => {
   return (
     <Container>
-      {medallions.map(medallion => <Icon src={medallion.image} key={medallion.name} />)}
+      {medallions.map(medallion => <MedallionIcon src={medallion.image} key={medallion.name} />)}
     </Container>
   )
 }
