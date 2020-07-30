@@ -6,10 +6,6 @@ interface IconStyledProps {
 
 export const Container = styled.div`
   position: relative;
-
-  & + div {
-    margin-left: 10px;
-  }
 `
 
 export const IconStyled = styled.img<IconStyledProps>`

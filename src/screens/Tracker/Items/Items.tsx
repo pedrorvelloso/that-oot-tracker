@@ -9,7 +9,7 @@ import { Container } from './styles'
 const Items: React.FC = () => {
   return (
     <Container>
-      {items.map(item => <UpgradableIcon upgrades={item.upgrades as ItemUpgrade[]} singleImage={item.image} key={item.name} />)}
+      {items.map(item => <UpgradableIcon upgrades={item.upgrades} singleImage={item.image} key={item.name} />)}
     </Container>
   )
 }

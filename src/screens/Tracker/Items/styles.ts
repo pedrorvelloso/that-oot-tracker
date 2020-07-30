@@ -2,6 +2,15 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-flow: row wrap;
+  /* justify-content: space-between;
+
+  ::after {
+    content: "";
+    flex: auto;
+  } */
+
+  > div {
+    margin: 5px;
+  }
 `
